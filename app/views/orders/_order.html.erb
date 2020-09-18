@@ -1,0 +1,26 @@
+<p>
+  <strong>Price:</strong>
+  <%= order.total_price %>
+  &nbsp &nbsp &nbsp
+
+  <strong>Status:</strong>
+  <%= order.status %>
+
+  <% OrderProduct.all do |op| %>
+	  <p>
+	    <strong>product:</strong>
+	    <%= op %>
+	    <br/>
+	    <%= op.p_quantity %>
+	    <br/>
+	    <%= op %>
+	  </p>
+  <% end %>
+
+</p>
+
+<p>
+  <%= link_to 'Destroy order', [order.user, order],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

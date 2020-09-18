@@ -3,5 +3,11 @@
   <%= @user.name %>
 </p>
  
+<h2>Orders</h2>
+<%= render @user.orders %>
+ 
+<h2>Add a order:</h2>
+<%= render 'orders/form' %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
