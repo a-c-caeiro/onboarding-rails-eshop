@@ -11,15 +11,19 @@
   Product.create(name: "Product ##{i+1}", price: 10*(i+1) ,status: "Avaliable")
 end
 
-Order.create(total_price: 0,status: "preparing",user: User.find(1))
-Order.create(total_price: 0,status: "preparing",user: User.find(1))
-Order.create(total_price: 0,status: "preparing",user: User.find(2))
+o1 = Order.create(total_price: 0,status: "preparing",user: User.find(1))
+o2 = Order.create(total_price: 0,status: "preparing",user: User.find(1))
+o3 = Order.create(total_price: 0,status: "preparing",user: User.find(2))
 
 
-OrderProduct.create(order: Order.find(1),product: Product.find(1),p_quantity: 1)
-OrderProduct.create(order: Order.find(1),product: Product.find(1),p_quantity: 3)
-OrderProduct.create(order: Order.find(1),product: Product.find(3),p_quantity: 1)
-OrderProduct.create(order: Order.find(2),product: Product.find(1),p_quantity: 1)
-OrderProduct.create(order: Order.find(2),product: Product.find(2),p_quantity: -1)
-OrderProduct.create(order: Order.find(1),product: Product.find(5),p_quantity: 1)
-OrderProduct.create(order: Order.find(3),product: Product.find(4),p_quantity: 10)
+o1.orderdetails.create(product: Product.find(1), p_quantity: 1)
+o1.orderdetails.create(product: Product.find(1), p_quantity: 3)
+o1.orderdetails.create(product: Product.find(3), p_quantity: 1)
+o2.orderdetails.create(product: Product.find(1), p_quantity: 1)
+o2.orderdetails.create(product: Product.find(2), p_quantity: -1)
+o1.orderdetails.create(product: Product.find(5), p_quantity: 1)
+o3.orderdetails.create(product: Product.find(4), p_quantity: 10)
+
+o1.save()
+o2.save()
+o3.save()

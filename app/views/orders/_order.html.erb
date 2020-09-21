@@ -4,19 +4,23 @@
   &nbsp &nbsp &nbsp
 
   <strong>Status:</strong>
-  <%= order.status %>
-
-  <% OrderProduct.all do |op| %>
-	  <p>
+  <%= order.status %>	
+  <ul>
+  <%order.orderdetails.each do |op| %>
+	  <li>
 	    <strong>product:</strong>
-	    <%= op %>
-	    <br/>
-	    <%= op.p_quantity %>
-	    <br/>
-	    <%= op %>
-	  </p>
-  <% end %>
+	    <%= op.product.name %>
+      <strong>product price:</strong>
+      <%= op.product.price %>
+      <strong>quantity:</strong>
+      <%= op.p_quantity %>
+      <strong>total:</strong> 
+      <%= op.p_quantity*op.product.price %>
 
+	  </li>
+
+  <% end %>
+  </ul>
 </p>
 
 <p>

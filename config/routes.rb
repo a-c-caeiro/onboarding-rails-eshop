@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :users do
-  	resources :orders do
-  		resources :orders_products
-  	end
+  	resources :orders
   end
   resources :products
 
