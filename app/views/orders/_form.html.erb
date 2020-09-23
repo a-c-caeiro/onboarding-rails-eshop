@@ -1,12 +1,16 @@
 <%= form_with(model: [ @user, @user.orders.build ], local: true) do |form| %>
+
   <p>
     <%= form.label :total_price %><br>
-    <%= form.text_field :status %>
+    <%= form.text_field :total_price %>
   </p>
   <p>
     <%= form.label :status %><br>
     <%= form.text_field :status %>
   </p>
+    Add product:
+    <%= collection_select(:order, :products_id, Product.all, :id, :name, {}, { } )%>
+    <%= number_field(:orderdetails, :p_quantity, in: 1..100, step: 1,value: 1) %>
   <p>
     <%= form.submit %>
   </p>

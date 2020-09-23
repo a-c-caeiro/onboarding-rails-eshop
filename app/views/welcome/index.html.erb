@@ -3,3 +3,26 @@
 <p>basic eshop modeling onboarding exercise</p>
 <%= link_to 'users', controller: 'users' %> (orders are inside each user)</br>
 <%= link_to 'products', controller: 'products' %>
+
+<div class ="mainother">
+  <div class="content">
+  	<%= link_to users_path do%>
+    	<i class="fas fa-user-tag fa-7x"></i>
+  	<% end %>
+  </div>
+  <div class="content">
+  	<%= link_to suppliers_path do%>
+    	<i class="fas fa-user-cog fa-7x"></i>
+  	<% end %>
+  </div>
+  <div class="content">
+  	<%= link_to users_path do%>
+    	<i class="fas fa-user fa-7x"></i>
+  	<% end %>
+  </div>
+  <div class="content">
+  	<%= link_to products_path do%>
+    	<i class="fas fa-shopping-basket fa-7x"></i>
+  	<% end %>
+  </div>  
+</div>

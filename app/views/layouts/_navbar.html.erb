@@ -1,0 +1,8 @@
+<!-- Navigation Bar -->
+<div class="navbar">
+	<% if content_for?(:navigation) %>
+	  <%= yield(:navigation) %>
+	<% else %>
+	  <a href="#">Link</a>
+	<% end %>
+</div>

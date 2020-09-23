@@ -1,0 +1,29 @@
+
+  <td></td>
+  <td colspan ="6">
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Prod id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Disc</th>
+        <th>Total</th>
+      </tr>
+      <% @order.orderdetails.each do |detail| %>
+        <% prod = detail.product %>
+          <tr>
+            <td>img </td>
+            <td> <%= prod.id%> </td>
+            <td> <%= prod.name%> </td>
+            <td> €<%= prod.price%> </td>
+            <td> x<%= detail.p_quantity%> </td>
+            <td class="discount"> <%= detail.discount%> % </td>
+            <td> €<%= (prod.price-(detail.discount*prod.price/100))*detail.p_quantity %> </td>
+          </tr>
+
+      <%end %>
+    </table>
+  </td>
+  <td></td>

@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
-  def create
-    @user = User.find(params[:user_id])
-    @order = @user.orders.create(order_params)
-    redirect_to user_path(@user)
-  end
- 
+  
+  def detail
+    @order = Order.find(params[:order_id])
+    respond_to do |format|
+      format.json { render partial: 'suppliers/orderdetail', format: :erb, layout: false}
+    end
+  end 
+  
   def destroy
     @user = User.find(params[:user_id])
     @order = @user.orders.find(params[:id])

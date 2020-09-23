@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_093311) do
+ActiveRecord::Schema.define(version: 2020_09_21_155824) do
 
   create_table "orderdetails", force: :cascade do |t|
     t.integer "order_id", null: false
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2020_09_21_093311) do
     t.integer "p_quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "Customer_id"
+    t.decimal "discount", default: "0.0"
+    t.index ["Customer_id"], name: "index_orderdetails_on_Customer_id"
     t.index ["order_id"], name: "index_orderdetails_on_order_id"
     t.index ["product_id"], name: "index_orderdetails_on_product_id"
   end
@@ -25,27 +28,35 @@ ActiveRecord::Schema.define(version: 2020_09_21_093311) do
   create_table "orders", force: :cascade do |t|
     t.decimal "total_price"
     t.string "status"
-    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.integer "customer_id", null: false
+    t.decimal "subtotal", default: "0.0", null: false
+    t.decimal "shipping_cost", default: "0.0", null: false
+    t.decimal "discount", default: "0.0", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "supplier_id", null: false
+    t.decimal "raw_price", default: "0.0", null: false
+    t.string "icon_link"
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "icon_link"
+    t.decimal "rating", default: "5.0", null: false
+    t.string "type"
   end
 
   add_foreign_key "orderdetails", "orders"
   add_foreign_key "orderdetails", "products"
-  add_foreign_key "orders", "users"
 end

@@ -1,0 +1,73 @@
+<% content_for :navigation do %>
+  <i class="fas fa-bolt"></i>
+  b
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supplier.name %>
+</p>
+ 
+<h2>Orders
+	<select name="Status" id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+<select name="Date" id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+
+</h2>
+
+<table>
+<thead>
+  <tr>
+    <th>#</th>
+    <th>order id</th>
+    <th>created</th>
+    <th>customer</th>
+    <th>total</th>
+    <th>profit</th>
+    <th>status</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+	<% @orderssupplier.each do |ord| %>
+
+  <tr id = "tr<%= ord.id%>">
+    <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></td>
+    <td><%= ord.id %></td>
+    <td><%= ((Time.now - ord.created_at)/ 1.minute).round %> min ago</td>
+    <td>
+      <% customer = ord.customer %>
+    	<%= customer.name %>
+    	<span class="icon"><i class="fas fa-star"></i></span>	
+    	<%= customer.rating	 %> 
+    	</td>
+    <td> € <%= ord.total_price %> </td>
+    <td> €0 <span class=label> 0% </span></td>
+    <td> <span class=label><%= ord.status %> </span></td>
+    <td> 
+      <input class="buttonDown"type="button" data-id="<%= ord.id%>" class="collapsible"value="">
+    </td>
+  </tr>
+  <tr class="contentcolapse" id="detail-<%= ord.id%>" mydata="wowMuchEmpty">
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
+<%= link_to 'Back', suppliers_path %>
+
+<% content_for :sidebar do %>
+  <p>testing this</p>
+<% end %>

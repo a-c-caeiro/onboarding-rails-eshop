@@ -1,0 +1,55 @@
+// Place all the styles related to the Suppliers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+table {
+	width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+	text-align: left;	
+  border-bottom: 1px solid #ddd;
+  padding-top: 15px;
+
+}
+th{
+  color:#BDBDBD;
+}
+
+td{
+	color:#2A2A2A;
+  padding-bottom: 15px;
+	.icon{color:#FC5A59;}
+}
+tr{border:0px;} 
+.label
+{
+	background-color: #464646;
+	color: white;	
+	border-radius: 15px;
+	padding: 1px;
+	padding-left:10px;
+	padding-right:10px;
+	border: 0px solid #000000;
+}
+.collapsible {
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.contentcolapse {
+  display: none;
+  overflow: hidden;
+}
+.discount {
+  color:#FC5A59; 
+}
