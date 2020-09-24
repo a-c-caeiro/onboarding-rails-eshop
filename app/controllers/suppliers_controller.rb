@@ -6,7 +6,7 @@ class SuppliersController < ApplicationController
   
   def show
     @supplier = Supplier.find(params[:id])
-    @orderssupplier = Order.joins(:products).where(products: {supplier: @supplier.id}).group(:order_id)
+    @orderssupplier = Order.joins(:products).where(products: {supplier: @supplier.id}).uniq
   end
 
   def edit
