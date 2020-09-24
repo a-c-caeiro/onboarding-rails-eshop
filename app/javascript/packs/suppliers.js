@@ -1,10 +1,6 @@
 import common from 'common/common.js';
 
 window.onload = function() {
-
-	var tr = document.getElementById('tr1');
-	console.log(tr)
-	//tr.style.backgroundColor="black";
 	var list = document.getElementsByClassName("buttonDown");
 	for (var i = 0; i < list.length; i++) {
 	    list[i].addEventListener('click',  getDetails);
@@ -12,7 +8,6 @@ window.onload = function() {
 };
 
 function getDetails() {
-
 	var orderid = this.getAttribute('data-id')
 	var ele = document.getElementById('detail-'+orderid);
     if (ele.getAttribute('mydata') == "wowMuchEmpty"){
