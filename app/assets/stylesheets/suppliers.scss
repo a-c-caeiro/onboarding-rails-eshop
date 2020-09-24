@@ -19,7 +19,6 @@ th{
 td{
 	color:#2A2A2A;
   padding-bottom: 15px;
-	.icon{color:#FC5A59;}
 }
 tr{border:0px;} 
 .label
@@ -52,4 +51,12 @@ tr{border:0px;}
 }
 .discount {
   color:#FC5A59; 
+}
+
+.navRight{
+  width: 20%;
+  text-align: right;
+}
+.navLeft{
+  width: 80%;
 }

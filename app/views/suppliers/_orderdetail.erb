@@ -4,26 +4,39 @@
     <table>
       <tr>
         <th>#</th>
-        <th>Prod id</th>
+        <th>Id</th>
         <th>Name</th>
         <th>Price</th>
         <th>Qty</th>
         <th>Disc</th>
         <th>Total</th>
+        <th></th>
       </tr>
       <% @order.orderdetails.each do |detail| %>
         <% prod = detail.product %>
           <tr>
-            <td>img </td>
-            <td> <%= prod.id%> </td>
-            <td> <%= prod.name%> </td>
-            <td> €<%= prod.price%> </td>
-            <td> x<%= detail.p_quantity%> </td>
-            <td class="discount"> <%= detail.discount%> % </td>
-            <td> €<%= (prod.price-(detail.discount*prod.price/100))*detail.p_quantity %> </td>
+            <td style="width: 5%">img </td>
+            <td style="width: 5%"> <%= prod.id%> </td>
+            <td style="width: 50%"> <%= prod.name%> </td>
+            <td style="width: 10%"> €<%= prod.price%> </td>
+            <td style="width: 10%"> x<%= detail.p_quantity%> </td>
+            <td style="width: 10%" class="discount"> <%= detail.discount%> % </td>
+            <td style="width: 7%"> €<%= (prod.price-(detail.discount*prod.price/100))*detail.p_quantity %> </td>
+            <td style="width: 1%">...</td>
           </tr>
 
       <%end %>
+      <tr style="border:0 px">
+        <td></td><td></td><td></td>
+        <td>
+          Subtotal:
+        </td>
+        <td></td><td></td>
+        <td>
+          test
+        </td>
+        <td></td>
+      </tr>
     </table>
   </td>
   <td></td>

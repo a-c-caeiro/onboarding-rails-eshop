@@ -34,9 +34,10 @@ body {
 .navbar {
   display: flex;
   border-bottom: 1px solid #ddd;
+  color: #7f7f7f;
+  padding: 14px 75px;
   a {
     color: white;
-    padding: 14px 20px;
     text-decoration: none;
     text-align: center;
   }
@@ -57,7 +58,7 @@ body {
 /* Sidebar/left column */
 .side {
   flex: 1 auto;
-  flex-basis: 5%;
+  flex-basis: 4%;
   -webkit-box-shadow: 2px 9px 34px 1px rgba(0,0,0,0.29);
   -moz-box-shadow: 2px 9px 34px 1px rgba(0,0,0,0.29);
   box-shadow: 2px 9px 34px 1px rgba(0,0,0,0.29);
@@ -92,17 +93,20 @@ body {
 }
 .maincontent {
   padding-top: 40px;
-  padding-left: 75px;
-  padding-right: 75px;
+  padding-left: 62px;
+  padding-right: 80px;
 }
 .sideRight {
   flex: 1 auto;
   flex-basis:  15%;
   background-color: #F9F8FF;
+  .navbar {
+    padding: 14px 37px;
+  }
 }
 .sideRightContent
 {
-  padding: 20px;
+  padding: 37px;
 }
 
 a:link {

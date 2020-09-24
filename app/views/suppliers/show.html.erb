@@ -1,12 +1,15 @@
 <% content_for :navigation do %>
-  <i class="fas fa-bolt"></i>
-  b
-<% end %>
+  <div class="navLeft">
+    <span style="color: #6A63D9"><i class="fas fa-bolt"></i></span>
+    I dont really know your productivity score, but welcome:
+    <span style="color: black"><%= @supplier.name%></span>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @supplier.name %>
-</p>
+  <div class="navRight">
+    <i class="fas fa-comments"></i> chats
+    <i class="fas fa-sliders-h"></i> settings
+  </div>
+<% end %>
  
 <h2>Orders
 	<select name="Status" id="cars">
@@ -54,7 +57,7 @@
     <td> € <%= ord.total_price %> </td>
     <td> €0 <span class=label> 0% </span></td>
     <td> <span class=label><%= ord.status %> </span></td>
-    <td> 
+    <td style="width: 7%"> 
       <input class="buttonDown"type="button" data-id="<%= ord.id%>" class="collapsible"value="">
     </td>
   </tr>
