@@ -26,16 +26,33 @@
           </tr>
 
       <%end %>
-      <tr style="border:0 px">
-        <td></td><td></td><td></td>
-        <td>
+      <tr style="border-bottom:0 px">
+        <td></td><td></td><td></td><td>
           Subtotal:
-        </td>
-        <td></td><td></td>
-        <td>
-          test
-        </td>
-        <td></td>
+        </td><td></td><td></td><td>
+          €<%=@order.subtotal%>
+        </td><td></td>
+      </tr>
+      <tr style="border:0 px">
+        <td></td><td></td><td></td><td>
+          Shipping:
+        </td><td></td><td></td><td>
+          €<%=@order.shipping_cost%>
+        </td><td></td>
+      </tr>
+      <tr style="border:0 px">
+        <td></td><td></td><td></td><td>
+          Discount:
+        </td><td></td><td></td><td>
+          €<%=@order.discount%>
+        </td><td></td>
+      </tr>
+      <tr style="border:0 px">
+        <td></td><td></td><td></td><td>
+          Total:
+        </td><td></td><td></td><td>
+          €<%=@order.total_price%>
+        </td><td></td>
       </tr>
     </table>
   </td>

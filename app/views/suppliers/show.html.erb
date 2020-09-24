@@ -1,4 +1,4 @@
-<% content_for :navigation do %>
+  <% content_for :navigation do %>
   <div class="navLeft">
     <span style="color: #6A63D9"><i class="fas fa-bolt"></i></span>
     I dont really know your productivity score, but welcome:
@@ -12,19 +12,19 @@
 <% end %>
  
 <h2>Orders
-	<select name="Status" id="cars">
+	<select name="Status" id="cars" class="dropdown">
   <option value="volvo">Volvo</option>
   <option value="saab">Saab</option>
   <option value="mercedes">Mercedes</option>
   <option value="audi">Audi</option>
 </select>
-<select name="Date" id="cars">
+<select name="Date" id="cars" class="dropdown">
   <option value="volvo">Volvo</option>
   <option value="saab">Saab</option>
   <option value="mercedes">Mercedes</option>
   <option value="audi">Audi</option>
 </select>
-    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "searchbar" %>  
 
 </h2>
 
@@ -44,7 +44,7 @@
 <tbody>
 	<% @orderssupplier.each do |ord| %>
 
-  <tr id = "tr<%= ord.id%>">
+  <tr id = "tr<%= ord.id%>" class = "solid">
     <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></td>
     <td><%= ord.id %></td>
     <td><%= ((Time.now - ord.created_at)/ 1.minute).round %> min ago</td>
@@ -58,7 +58,9 @@
     <td> €0 <span class=label> 0% </span></td>
     <td> <span class=label><%= ord.status %> </span></td>
     <td style="width: 7%"> 
-      <input class="buttonDown"type="button" data-id="<%= ord.id%>" class="collapsible"value="">
+      <button type="button" class="buttonDown"data-id="<%= ord.id%>" class="collapsible"value="">
+        <i class="fas fa-caret-down"></i>
+      </button>
     </td>
   </tr>
   <tr class="contentcolapse" id="detail-<%= ord.id%>" mydata="wowMuchEmpty">
@@ -67,10 +69,16 @@
 </tbody>
 </table>
 
-
-<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
-<%= link_to 'Back', suppliers_path %>
-
 <% content_for :sidebar do %>
-  <p>testing this</p>
+  <p>OVERVIEW</p>
+  <p>Total Orders</p>
+  <h2><%=@orderssupplier.count%></h2>
+  <p>Need to implement:</p>
+  <ul>
+    <li> Orders today</li>
+    <li> pending orders</li>
+    <li> Delivererd</li>
+    <li> Cancelled</li>
+  </ul>
+
 <% end %>

@@ -20,9 +20,9 @@ td{
 	color:#2A2A2A;
   padding-bottom: 15px;
   .icon{color:#FC5A59;}
-
 }
 tr{border:0px;} 
+
 .label
 {
 	background-color: #464646;
@@ -61,4 +61,19 @@ tr{border:0px;}
 }
 .navLeft{
   width: 80%;
+}
+
+.buttonDown,.dropdown,.searchbar
+{
+  background-color:white;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius: 15px; 
+  color: #BDBDBD;
+  border-color:#BDBDBD;
+  border-width: thin;
+  border-style: solid;
+}
+.buttonDown:focus {
+    outline: none;
 }

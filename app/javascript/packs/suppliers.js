@@ -15,17 +15,24 @@ function getDetails() {
     }
     var tr = document.getElementById('tr'+orderid);
     if(ele.style.display == "table-row") {
-            ele.style.display = "none"; 
-            tr.style.border = " 0px";
-            ele.style.border = " 0px";
-            var c = tr.childNodes;
-            for (var i = 0; i < c.length; i++) {
-              if (c[i].nodeName.toLowerCase() == 'td') {
-                c[i].style.borderBottom = " 1px solid #ddd";
-              }
-            } 
+        this.innerHTML = "<i class='fas fa-caret-down'></i>"
+        this.style.color ="#BDBDBD"
+        this.style.boxShadow="0px 0px 0px 0px";
+        ele.style.display = "none"; 
+        tr.style.border = " 0px";
+        ele.style.border = " 0px";
+        tr.style.borderRadius = "0px";
+        var c = tr.childNodes;
+        for (var i = 0; i < c.length; i++) {
+          if (c[i].nodeName.toLowerCase() == 'td') {
+            c[i].style.borderBottom = " 1px solid #ddd";
+          }
+        } 
     }
     else {
+        this.innerHTML = "<i class='fas fa-caret-up'></i>"
+        this.style.color ="#6A63D9"
+        this.style.boxShadow="0px 2px 2px 1px rgba(0,0,0,0.2)";
         setTrCss(tr);
         setEleCss(ele);
     }
@@ -47,19 +54,20 @@ function requestContent(orderid,ele)
 function setEleCss(ele)
 {
     ele.style.display = "table-row";
-    ele.style.borderRadius = "10%";
     ele.style.borderTop = " 0px solid #ddd";
-    ele.style.borderLeft = " 1px solid #ddd"; 
-    ele.style.borderRight = " 1px solid #ddd";
-    ele.style.borderBottom = " 0px solid #ddd";
+    ele.style.borderLeft = " 2px solid #ddd"; 
+    ele.style.borderRight = " 2px solid #ddd";
+    ele.style.borderBottom = " 2px solid #ddd";
+    ele.style.borderRadius="20px";
+
 }
 function setTrCss(tr){
 
-    tr.style.borderRadius = "50%";
-    tr.style.borderTop = " 1px solid #ddd";
-    tr.style.borderLeft = " 1px solid #ddd"; 
-    tr.style.borderRight = " 1px solid #ddd";
+    tr.style.borderTop = " 2px solid #ddd";
+    tr.style.borderLeft = " 2px solid #ddd"; 
+    tr.style.borderRight = " 2px solid #ddd";
     tr.style.borderBottom = " 0px solid #ddd";
+    tr.style.borderRadius="20px";
     var c = tr.childNodes;
     for (var i = 0; i < c.length; i++) {
       if (c[i].nodeName.toLowerCase() == 'td') {
